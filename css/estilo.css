@@ -46,18 +46,27 @@ a {
 
 .btn {
   background-color: var(--primary-color);
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 1.8rem;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2.4rem;
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn:hover {
   background-color: #388e3c;
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .wrapperContainer {
@@ -358,11 +367,12 @@ a {
 }
 
 .footer {
-  background-color: #1b5e20;
+  background-color: var(--dark-bg-color);
   color: #fff;
   text-align: center;
   padding: 3rem 0;
   font-size: 1.4rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeIn {
@@ -393,26 +403,28 @@ a {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 
   .header.container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 1rem 2rem;
   }
 
   .heroBanner {
     flex-direction: column-reverse;
     text-align: center;
+    padding: 3rem 0;
+    gap: 2rem;
   }
 
   .escola-wrapper {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
   }
 
   .menu-close-btn {
@@ -428,9 +440,21 @@ a {
     background: var(--text-light);
   }
 
+  .header_nav {
+    width: 250px;
+    padding: 6rem 1.5rem 1.5rem;
+  }
+
+  .header_nav a {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+  }
+
   img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
