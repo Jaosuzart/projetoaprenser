@@ -229,6 +229,7 @@ a {
     padding: 0;
     flex-direction: row;
     transition: none;
+    padding-top: 3em;
   }
 
   .header_nav ul {
