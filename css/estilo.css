@@ -110,7 +110,7 @@ nav a {
 }
 
 .header_nav a {
-  padding: 0.75em 1.15em;
+  padding: 0.75em 0.6em;
   border: solid 1px;
   text-decoration: none;
   color: inherit;
@@ -154,33 +154,29 @@ menu {
   margin: 0;
   background-color: #444;
 }
-
-.hamburger-button .icon {
-  display: inline-block;
-  width: 30px;
-  text-align: center;
+.menu-toggle {
+  margin-top: -10px; /* Ajusta a posição para cima */
+  transition: all 0.3s ease;
 }
 
-.hamburger-button[aria-expanded="false"] .icon::before {
-  content: "\2630";
+#menu {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
-.hamburger-button[aria-expanded="true"] .icon::before {
-  content: "\2715";
+#menu[aria-hidden="false"] {
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.hamburger-button-js-enabled + .menu {
-  display: flex;
-  position: absolute;
-  width: calc(100% - 30px);
-  left: 15px;
-  top: 60px;
-  flex-direction: column;
+.menu-overlay {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 
-/* Correção: seletor corrigido para menu fechado */
-.hamburger-button-js-enabled + .menu.menu-closed {
-  display: none;
+.menu-overlay.active {
+  opacity: 1;
 }
 
 .menu li a {
@@ -193,20 +189,6 @@ menu {
 .menu li a:hover,
 .menu li a:focus {
   background-color: #555;
-}
-
-.hamburger-button {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  padding: 14px;
-  cursor: pointer;
-}
-
-.hamburger-button.hamburger-button-js-enabled {
-  display: block;
 }
 
 @media (min-width: 400px) {
@@ -285,7 +267,7 @@ menu {
   display: flex;
   flex-direction: row;
   gap: 7rem;
-  padding: 7rem 2rem;
+  padding: 7rem 0;
   align-items: flex-start;
 }
 
@@ -301,8 +283,6 @@ menu {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: block;
   margin: 0 auto;
-  padding: 20px;
-  padding-left: 5em;
 }
 
 .escola_content {
@@ -317,8 +297,8 @@ menu {
 .escola p,
 .escola_footer {
   text-align: center;
-  padding-right: 4em;
 }
+
 .escola_footer {
   margin-bottom: 2.5rem;
   text-align: left;
@@ -467,15 +447,17 @@ menu {
   }
 }
 
+/* Menu Hamburguer */
 .menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 1rem;
-  margin-left: 1rem;
-  z-index: 200;
-  position: relative;
+  z-index: 1200;
+  position: fixed;
+  left: 20px;
+  top: 20px;
 }
 .menu-icon {
   display: block;
@@ -483,7 +465,7 @@ menu {
   height: 3px;
   background: #4caf50;
   position: relative;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 .menu-icon::before,
 .menu-icon::after {
@@ -494,7 +476,7 @@ menu {
   background: #4caf50;
   position: absolute;
   left: 0;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 .menu-icon::before {
   top: -9px;
@@ -503,6 +485,7 @@ menu {
   top: 9px;
 }
 
+/* Animação para X */
 .menu-toggle.active .menu-icon {
   background: transparent;
 }
@@ -515,6 +498,7 @@ menu {
   top: 0;
 }
 
+/* Menu lateral (off-canvas) */
 #menu {
   position: fixed;
   top: 0;
@@ -524,11 +508,11 @@ menu {
   background: #222;
   color: #fff;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
-  z-index: 100;
+  z-index: 1100;
   transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  padding: 60px 1.5rem 1.5rem 1.5rem;
 }
 #menu.menu-closed {
   left: -300px;
@@ -540,13 +524,24 @@ menu {
   background: none;
   border: none;
   color: #fff;
-  font-size: 2rem;
-  align-self: flex-end;
+  font-size: 2.4rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
-  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+.menu-close:hover {
+  transform: rotate(90deg);
 }
 .menu-toggle {
-  z-index: 100;
+  z-index: 1100;
 }
 @media (min-width: 768px) {
   #menu {
@@ -566,6 +561,7 @@ menu {
     display: none;
   }
 }
+
 @media (max-width: 768px) {
   .header_nav ul {
     display: none;
@@ -627,9 +623,6 @@ menu {
 
 /* Garante que o menu lateral funcione corretamente em telas pequenas */
 @media (max-width: 768px) {
-  .header_nav {
-    /* O menu lateral já está com position: fixed no CSS global */
-  }
   .header_nav ul {
     display: flex;
     flex-direction: column;
@@ -655,15 +648,19 @@ menu {
     border: none;
     background: none;
     text-align: left;
+    font-size: 1.6rem;
+    transition: color 0.3s;
+  }
+  .header_nav ul li a:hover {
+    color: var(--primary-color);
   }
   .menu-toggle {
     display: block;
     position: fixed;
     left: 20px;
-    top: 10px;
-    z-index: 100;
+    top: 20px;
+    z-index: 1100;
     margin-right: 20px;
-    padding-top: 5px;
   }
 }
 
