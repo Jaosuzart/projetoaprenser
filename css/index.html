@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Aprenser - Uma educação que transforma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../normalize/normalize.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body>
+    <div class="wrapperContainer wrapperContainer-dark wrapperContainer-fixed">
+        <header class="header container">
+            <img src="../imagens/logoAprenser.png" alt="Aprenser" class="logo">
+            <button class="menu-toggle" id="hamburguer-button" aria-label="Abrir menu" aria-expanded="false">
+                <span class="menu-icon"></span>
+            </button>
+            <nav class="header_nav" id="menu" aria-hidden="true">
+                <button class="menu-close" aria-label="Fechar menu">&times;</button>
+                <ul>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#escola">Nossa Escola</a></li>
+                    <li><a href="#contatos">Contatos</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="wrapperContainer wrapperContainer-hero">
+        <section class="container heroBanner">
+            <div class="header_content">
+                <h1 class="hero_title">O saber é o que transforma nosso <span class="upper">ser</span></h1>
+                <a href="#" class="btn">Saiba mais</a>
+            </div>
+            <img src="../imagens/HeroImage.png" alt="Mulher segurando flores">
+        </section>
+    </div>
+
+    <div class="wrapperContainer wrapperContainer-light wrapperContainer-padded" id="cursos">
+        <section class="cursos container">
+            <h2 class="section_title">Principais Cursos</h2>
+            <div class="cursosContainer">
+                <article class="curso_card">
+                    <img src="../imagens/curso-design.png" alt="Curso design">
+                    <div class="cursos_card_content">
+                        <h3>Design para web</h3>
+                        <p>O curso Design para Web é perfeito para aqueles que desejam aprender a criar designs
+                            atraentes e funcionais.</p>
+                    </div>
+                </article>
+
+                <article class="curso_card">
+                    <img src="../imagens/curso-design-1.png" alt="Curso Front-end">
+                    <div class="cursos_card_content">
+                        <h3>Front End Developer</h3>
+                        <p>Aprenda HTML, CSS e Javascript e crie interfaces ricas e semânticas para páginas web.</p>
+                    </div>
+                </article>
+
+                <article class="curso_card">
+                    <img src="../imagens/curso-design-2.png" alt="Curso Back-end">
+                    <div class="cursos_card_content">
+                        <h3>Back End Developer</h3>
+                        <p>Domine uma linguagem back-end, sistemas de banco de dados e o protocolo HTTP na prática.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="btn-container">
+                <a href="#" class="btn section_btn">Ver mais cursos</a>
+            </div>
+        </section>
+    </div>
+
+    <div class="wrapperContainer wrapperContainer-dark2 wrapperContainer-padded" id="escola">
+        <section class="container">
+            <div class="escola-wrapper">
+                <figure class="escola_imagem">
+                    <img src="../imagens/nossa-escola (1).png" alt="Aluna realizando atividade prática no computador">
+                    <figcaption class="imagem_legenda">Ambiente de aprendizagem interativo</figcaption>
+                </figure>
+                <div class="escola_content">
+                    <h2 class="escola_title">Nossa escola</h2>
+                    <p>Aprenda habilidades tecnológicas em demanda com nossa escola de tecnologia online. Oferecemos
+                        cursos
+                        desde programação até design gráfico, com instrutores experientes e ambiente de aprendizado
+                        interativo.</p>
+                    <div class="escola_footer">
+                        Conheça nossa metodologia de ensino!
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="wrapperContainer wrapperContainer-light wrapperContainer-padded" id="contatos">
+        <section class="container">
+            <div class="contatos-wrapper">
+                <h2 class="section_title">Contatos</h2>
+                <div class="mapContainer">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.2270164982865!2d-38.455698325046825!3d-12.957320259521985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161b535bf1f3dd%3A0x2853e2a8fc709c5c!2sResidencial%20Sevilha!5e0!3m2!1spt-BR!2sbr!4v1747317072870!5m2!1spt-BR!2sbr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contatos-info">
+                    <address class="contatos_address">
+                        <strong>Endereço: joaomarcelosuzartcastro@gmail.com</strong>
+                        Telefone: +351 21 123 456<br>
+                    </address>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="wrapperContainer wrapperContainer-dark">
+        <footer class="footer">&copy; Desenvolvido por João Marcelo, desenvolvedor front-end./footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
