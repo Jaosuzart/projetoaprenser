@@ -61,7 +61,7 @@ a {
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -166,7 +166,7 @@ a {
   height: 2px;
   background: var(--text-light);
   position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .menu-icon::before,
@@ -178,7 +178,7 @@ a {
   background: var(--text-light);
   position: absolute;
   left: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .menu-icon::before {
@@ -200,7 +200,7 @@ a {
   margin: 0;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 1.5rem; /* Ajuste para espaçamento dinâmico */
 }
 
 .header_nav a {
@@ -208,10 +208,11 @@ a {
   border: 1px solid var(--primary-color);
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição suavizada */
   font-size: 1.6rem;
   position: relative;
   overflow: hidden;
+  display: inline-block; /* Garante que o elemento seja tratado como bloco inline */
 }
 
 .header_nav a::before {
@@ -222,7 +223,7 @@ a {
   width: 100%;
   height: 100%;
   background: var(--primary-color);
-  transition: left 0.3s ease;
+  transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Sincronizado com a transição principal */
   z-index: -1;
 }
 
@@ -519,7 +520,7 @@ a {
     background: var(--dark-bg-color);
     z-index: 1100;
     transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     flex-direction: column;
     padding: 8rem 2rem 2rem;
   }
@@ -626,7 +627,7 @@ a {
 
   .header_nav ul {
     flex-direction: row;
-    gap: 1rem;
+    gap: 1.5rem; /* Espaçamento consistente */
   }
 
   .header_nav a {
