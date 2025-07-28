@@ -46,6 +46,7 @@ h3 {
 
 a {
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .upper {
@@ -60,7 +61,7 @@ a {
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -69,12 +70,12 @@ a {
 .btn:hover {
   background-color: #388e3c;
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .wrapperContainer {
@@ -102,6 +103,7 @@ a {
   z-index: 100;
   background-color: var(--dark-bg-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .wrapperContainer-padded {
@@ -118,12 +120,13 @@ a {
 .section_title {
   text-align: center;
   margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .escola_title {
-  flex-basis: 100%;
   text-align: center;
   margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .header {
@@ -136,6 +139,11 @@ a {
 
 .logo {
   height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .menu-toggle {
@@ -145,6 +153,11 @@ a {
   cursor: pointer;
   padding: 1rem;
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
 }
 
 .menu-icon {
@@ -153,7 +166,7 @@ a {
   height: 2px;
   background: var(--text-light);
   position: relative;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-icon::before,
@@ -165,7 +178,7 @@ a {
   background: var(--text-light);
   position: absolute;
   left: 0;
-  transition: transform 0.3s ease, top 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-icon::before {
@@ -178,6 +191,7 @@ a {
 
 .header_nav {
   display: flex;
+  transition: all 0.3s ease;
 }
 
 .header_nav ul {
@@ -194,17 +208,53 @@ a {
   border: 1px solid var(--primary-color);
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.header_nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.header_nav a:hover::before {
+  left: 0;
 }
 
 .header_nav a:hover {
   background-color: var(--primary-color);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .menu-close-btn {
   display: none;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-close-btn:hover {
+  transform: scale(1.1);
+  color: var(--primary-color);
 }
 
 .heroBanner {
@@ -222,12 +272,18 @@ a {
 
 .hero_title {
   margin-bottom: 4rem;
+  animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 .heroBanner img {
   max-width: 400px;
   border-radius: 12px;
-  animation: fadeIn 1s ease-out 0.2s both;
+  animation: fadeIn 1s ease-out 0.5s both;
+  transition: transform 0.3s ease;
+}
+
+.heroBanner img:hover {
+  transform: scale(1.05);
 }
 
 .cursosContainer {
@@ -245,12 +301,25 @@ a {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.curso_card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.curso_card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.curso_card:nth-child(3) {
+  animation-delay: 0.3s;
 }
 
 .curso_card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .curso_card img {
@@ -258,6 +327,11 @@ a {
   height: 180px;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.curso_card:hover img {
+  transform: scale(1.05);
 }
 
 .cursos_card_content {
@@ -279,52 +353,58 @@ a {
 .btn-container {
   text-align: center;
   margin-top: 4rem;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .escola-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 4rem;
-  flex-wrap: nowrap; /* Não quebra linha em desktop */
-  width: 100%;
-  box-sizing: border-box;
-  padding-left: 4vw;   /* Espaço lateral extra */
-  padding-right: 4vw;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* Ajustes para evitar corte da imagem em desktop */
 .escola_imagem {
-  flex: 0 1 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0;
-  max-width: 450px;
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  transition: transform 0.3s ease;
+}
+
+.escola_imagem:hover {
+  transform: scale(1.02);
 }
 
 .escola_imagem img {
   width: 100%;
-  max-width: 380px;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
   border-radius: 6px;
-  display: block;
+  transition: transform 0.3s ease;
+}
+
+.escola_imagem:hover img {
+  transform: scale(1.05);
 }
 
 .escola_content {
   flex: 1;
   max-width: 500px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .contatos-wrapper {
   text-align: center;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .mapContainer {
   width: 100%;
   margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.mapContainer:hover {
+  transform: scale(1.02);
 }
 
 .mapContainer iframe {
@@ -332,10 +412,16 @@ a {
   height: 400px;
   border-radius: 8px;
   border: none;
+  transition: all 0.3s ease;
 }
 
 .contatos_address {
   font-style: normal;
+  transition: color 0.3s ease;
+}
+
+.contatos_address:hover {
+  color: var(--primary-color);
 }
 
 .footer {
@@ -345,6 +431,11 @@ a {
   padding: 3rem 0;
   font-size: 1.4rem;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.footer:hover {
+  background-color: #1a1a1a;
 }
 
 @keyframes fadeIn {
@@ -359,11 +450,33 @@ a {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -372,8 +485,6 @@ a {
 #contatos {
   animation: fadeInUp 0.8s ease-out forwards;
 }
-
-/* ===== Media Queries ===== */
 
 @media (max-width: 768px) {
   h1 {
@@ -435,16 +546,6 @@ a {
 
   .menu-close-btn {
     display: block;
-    background: none;
-    border: none;
-    color: var(--text-light);
-    font-size: 3.5rem;
-    font-weight: 300;
-    line-height: 1;
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    cursor: pointer;
   }
 
   .heroBanner {
@@ -468,8 +569,10 @@ a {
   }
 
   .escola_imagem img {
-    max-height: none;
-    object-fit: contain;
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    object-position: center 25%;
   }
 }
 
@@ -483,8 +586,11 @@ a {
   .hero_title {
     margin-top: 0.2em;
   }
+  .section_title {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
 
-  .section_title,
   .escola_title {
     text-align: center;
     margin-bottom: 4rem;
@@ -496,6 +602,10 @@ a {
     align-items: center;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  .logo {
+    height: 40px;
   }
 
   .menu-toggle {
@@ -511,7 +621,7 @@ a {
     padding: 0;
     flex-direction: row;
     transition: none;
-    padding-top: 3rem;
+    padding-top: 3em;
   }
 
   .header_nav ul {
@@ -529,6 +639,10 @@ a {
     background-color: var(--primary-color);
     color: #fff;
   }
+
+  .header_nav .menu-close-btn {
+    display: none;
+  }
 }
 
 @media (min-width: 360px) and (max-width: 768px) {
@@ -537,31 +651,8 @@ a {
     font-size: 1.4rem;
     margin-right: 1em;
   }
-}
-
-@media (max-width: 954px) and (min-width: 695px) {
-  .heroBanner {
-    flex-direction: column-reverse;
+  .escola_content {
     text-align: center;
-    padding: 3rem 2.5rem;
-    gap: 2rem;
-  }
-
-  .heroBanner img {
-    width: 100%;
-    max-height: 350px;
-    object-fit: cover;
-    object-position: center 100%;
-  }
-
-  .escola-wrapper {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .escola_imagem img {
-    object-fit: contain;
-    object-position: center 100%;
+    justify-content: space-between;
   }
 }
