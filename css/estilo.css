@@ -442,6 +442,7 @@ a {
     display: block;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 0.8em;
   }
 
   .escola-wrapper {
@@ -457,7 +458,9 @@ a {
     margin: 0 auto;
     padding: 0 2.5rem;
   }
-
+  .hero_title {
+    margin-top: 0.2em;
+  }
   .section_title {
     text-align: center;
     margin-bottom: 4rem;
@@ -514,5 +517,12 @@ a {
 
   .header_nav .menu-close-btn {
     display: none;
+  }
+}
+@media (min-width: 360px) and (max-width: 768px) {
+  .contatos_address {
+    font-style: normal;
+    font-size: 1.4rem;
+    margin-right: 1em;
   }
 }
