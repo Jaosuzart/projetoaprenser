@@ -200,7 +200,7 @@ a {
   margin: 0;
   display: flex;
   flex-direction: row;
-  gap: 1.5rem; /* Ajuste para espaçamento dinâmico */
+  gap: 1.5rem;
 }
 
 .header_nav a {
@@ -208,11 +208,11 @@ a {
   border: 1px solid var(--primary-color);
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição suavizada */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   font-size: 1.6rem;
   position: relative;
   overflow: hidden;
-  display: inline-block; /* Garante que o elemento seja tratado como bloco inline */
+  display: inline-block;
 }
 
 .header_nav a::before {
@@ -223,7 +223,7 @@ a {
   width: 100%;
   height: 100%;
   background: var(--primary-color);
-  transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Sincronizado com a transição principal */
+  transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   z-index: -1;
 }
 
@@ -627,7 +627,7 @@ a {
 
   .header_nav ul {
     flex-direction: row;
-    gap: 1.5rem; /* Espaçamento consistente */
+    gap: 1.5rem;
   }
 
   .header_nav a {

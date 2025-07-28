@@ -1,43 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-  var menu = document.getElementById("menu");
-  var hamburger = document.getElementById("hamburguer-button");
-  var closeBtn = document.querySelector(".menu-close-btn");
+const menuToggle = document.getElementById("hamburguer-button");
+const navMenu = document.getElementById("menu");
+const menuCloseButton = document.querySelector(".menu-close-btn");
 
-  function updateMenuState() {
-    if (window.matchMedia("(max-width: 768px)").matches) {
-      if (document.body.classList.contains("menu-open")) {
-        menu.removeAttribute("inert");
-      } else {
-        menu.setAttribute("inert", "");
-      }
-    } else {
-      document.body.classList.remove("menu-open");
-      menu.removeAttribute("inert");
-    }
-  }
+function openMenu() {
+  menuToggle.classList.add("active");
+  navMenu.classList.add("active");
+  document.body.classList.add("menu-open");
+  menuToggle.setAttribute("aria-expanded", "true");
+  navMenu.setAttribute("aria-hidden", "false");
+}
 
-  function openMenu() {
-    document.body.classList.add("menu-open");
-    updateMenuState();
-    menu.querySelector("a").focus();
-  }
+function closeMenu() {
+  menuToggle.classList.remove("active");
+  navMenu.classList.remove("active");
+  document.body.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  navMenu.setAttribute("aria-hidden", "true");
+  menuToggle.focus();
+}
 
-  function closeMenu() {
-    document.body.classList.remove("menu-open");
-    updateMenuState();
-    hamburger.focus();
-  }
-
-  updateMenuState();
-
-  hamburger.addEventListener("click", openMenu);
-  closeBtn.addEventListener("click", closeMenu);
-
-  menu.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      closeMenu();
-    });
-  });
-
-  window.addEventListener("resize", updateMenuState);
-});
+menuToggle.addEventListener("click", openMenu);
+menuCloseButton.addEventListener("click", closeMenu);
