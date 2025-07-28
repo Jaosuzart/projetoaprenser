@@ -121,6 +121,7 @@ a {
 }
 
 .escola_title {
+  flex-basis: 100%;
   text-align: center;
   margin-bottom: 4rem;
 }
@@ -283,24 +284,38 @@ a {
 .escola-wrapper {
   display: flex;
   align-items: center;
-  gap: 4rem;
-  flex-wrap: wrap;
   justify-content: center;
+  gap: 4rem;
+  flex-wrap: nowrap; /* Não quebra linha em desktop */
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 4vw;   /* Espaço lateral extra */
+  padding-right: 4vw;
 }
 
+/* Ajustes para evitar corte da imagem em desktop */
 .escola_imagem {
-  margin: 0 1rem;
-  max-width: 350px;
+  flex: 0 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  max-width: 450px;
 }
 
 .escola_imagem img {
   width: 100%;
-  border-radius: 12px;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 6px;
+  display: block;
 }
 
 .escola_content {
   flex: 1;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .contatos-wrapper {
@@ -358,12 +373,22 @@ a {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
+/* ===== Media Queries ===== */
+
 @media (max-width: 768px) {
   h1 {
     font-size: 3.2rem;
   }
   h2 {
     font-size: 2.8rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   .header.container {
@@ -425,7 +450,7 @@ a {
   .heroBanner {
     flex-direction: column-reverse;
     text-align: center;
-    padding: 3rem 0;
+    padding: 3rem 2.5rem;
     gap: 2rem;
   }
 
@@ -436,19 +461,15 @@ a {
     object-position: center 25%;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 0.8em;
-  }
-
   .escola-wrapper {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+  }
+
+  .escola_imagem img {
+    max-height: none;
+    object-fit: contain;
   }
 }
 
@@ -458,14 +479,12 @@ a {
     margin: 0 auto;
     padding: 0 2.5rem;
   }
+
   .hero_title {
     margin-top: 0.2em;
   }
-  .section_title {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
 
+  .section_title,
   .escola_title {
     text-align: center;
     margin-bottom: 4rem;
@@ -477,10 +496,6 @@ a {
     align-items: center;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-  }
-
-  .logo {
-    height: 40px;
   }
 
   .menu-toggle {
@@ -496,7 +511,7 @@ a {
     padding: 0;
     flex-direction: row;
     transition: none;
-    padding-top: 3em;
+    padding-top: 3rem;
   }
 
   .header_nav ul {
@@ -514,15 +529,39 @@ a {
     background-color: var(--primary-color);
     color: #fff;
   }
-
-  .header_nav .menu-close-btn {
-    display: none;
-  }
 }
+
 @media (min-width: 360px) and (max-width: 768px) {
   .contatos_address {
     font-style: normal;
     font-size: 1.4rem;
     margin-right: 1em;
+  }
+}
+
+@media (max-width: 954px) and (min-width: 695px) {
+  .heroBanner {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 3rem 2.5rem;
+    gap: 2rem;
+  }
+
+  .heroBanner img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    object-position: center 100%;
+  }
+
+  .escola-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .escola_imagem img {
+    object-fit: contain;
+    object-position: center 100%;
   }
 }
